@@ -5,6 +5,7 @@
 test_build_page() {
   local tmpDir=$(makeTempDir build_page)
 
+  git clean -dfx tests/fixtures/build_page
   build_page tests/fixtures/build_page $tmpDir "some-random-lib" "build build:minified pack"
 
   # It copies the dist, bundle and packed versions

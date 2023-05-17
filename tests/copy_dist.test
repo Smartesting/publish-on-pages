@@ -7,7 +7,7 @@
 test_copy_dist() {
   local tmpDir=$(makeTempDir copy_dist)
 
-  copy_dist tests/fixtures/copy_dist/ $tmpDir
+  copy_dist tests/fixtures/copy_dist $tmpDir
 
   assertFiles $tmpDir "package.json a_directory"
   assertFiles $tmpDir/a_directory "some_file"
@@ -17,7 +17,9 @@ test_copy_dist() {
 test_copy_dist_without_ending_slash() {
   local tmpDir=$(makeTempDir copy_dist)
 
-  copy_dist tests/fixtures/copy_dist $tmpDir/
+  echo "TMPDIR: $tmpDir"
+
+  copy_dist tests/fixtures/copy_dist/ $tmpDir
 
   assertFiles $tmpDir "package.json a_directory"
   assertFiles $tmpDir/a_directory "some_file"

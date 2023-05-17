@@ -2,9 +2,9 @@
 
 copy_dist() {
   local source=$(append_slash "$1")
-  local dest=$(append_slash "$2")
+  local dest="$2"
 
-  cp -r "$source" "$dest"
+  cp -r $source* "$dest"
 }
 
 append_slash() {

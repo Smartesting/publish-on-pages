@@ -1,0 +1,8 @@
+#!/bin/sh
+
+docker build --tag publish-on-pages . && \
+docker run \
+  --volume $(pwd):/app \
+  --workdir /app \
+  -it publish-on-pages \
+  tests/run
