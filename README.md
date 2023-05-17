@@ -1,4 +1,5 @@
 # publish-on-pages
+[![CI](https://github.com/Smartesting/publish-on-pages/actions/workflows/test.yml/badge.svg)](https://github.com/Smartesting/publish-on-pages/actions/workflows/test.yml)
 
 Use GitHub pages to publish intermediary releases of JS packages
 
