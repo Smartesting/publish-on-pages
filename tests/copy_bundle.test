@@ -1,6 +1,6 @@
 #!/bin/sh
-source ./scripts/copy_bundle
-source ./tests/test_utils
+. ./scripts/copy_bundle
+. ./tests/test_utils
 
 # It copies the bundle
 test_copy_bundle() {

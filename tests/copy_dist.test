@@ -1,7 +1,7 @@
 #!/bin/sh
 
-source ./scripts/copy_dist
-source ./tests/test_utils
+. ./scripts/copy_dist
+. ./tests/test_utils
 
 # It recursivelly copies a directory
 test_copy_dist() {

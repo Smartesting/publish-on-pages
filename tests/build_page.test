@@ -1,6 +1,6 @@
 #!/bin/sh
-source ./scripts/build_page
-source ./tests/test_utils
+. ./scripts/build_page
+. ./tests/test_utils
 
 test_build_page() {
   local tmpDir=$(makeTempDir build_page)

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-source ./scripts/build
-source ./tests/test_utils
+. ./scripts/build
+. ./tests/test_utils
 
 testBuild() {
   local tmpDir=$(makeTempDir build)

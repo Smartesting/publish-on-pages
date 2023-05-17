@@ -1,8 +1,8 @@
 #!/bin/sh
-source './scripts/build'
-source './scripts/copy_dist'
-source './scripts/copy_bundle'
-source './scripts/copy_packed'
+. './scripts/build'
+. './scripts/copy_dist'
+. './scripts/copy_bundle'
+. './scripts/copy_packed'
 
 
 build_page() {

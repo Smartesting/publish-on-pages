@@ -1,7 +1,7 @@
 #!/bin/sh
 
-source ./scripts/clone
-source ./tests/test_utils
+. ./scripts/clone
+. ./tests/test_utils
 
 # It clones the branch in a folder named "<branch>-tmp>"
 testClone() {

@@ -1,6 +1,6 @@
 #!/bin/sh
-source ./scripts/copy_packed
-source ./tests/test_utils
+. ./scripts/copy_packed
+. ./tests/test_utils
 
 # It copies th tarball and renames it
 test_copy_packed() {
