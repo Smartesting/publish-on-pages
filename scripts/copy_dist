@@ -9,7 +9,7 @@ copy_dist() {
 
 append_slash() {
   local value="$1"
-  local ends_with_slash=$(grep -e '\/$' <<< "$value")
+  local ends_with_slash=$(echo "$value" | grep -e '\/$')
 
   if [ "$ends_with_slash" ]; then
     echo "$value"
