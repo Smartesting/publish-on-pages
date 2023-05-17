@@ -32,6 +32,8 @@ assertIn() {
   local actual=$1
   local expected=$2
 
-  [[ "$VERBOSE" ]] && echo "Checking <$expected> in <$actual>"
+  if [ "$VERBOSE" ]; then
+    echo "Checking <$expected> in <$actual>"
+  fi
   assertContains "Expected <$expected> to be contained in <$actual>" "$actual" $expected
 }

@@ -7,7 +7,7 @@
 test_copy_dist() {
   local tmpDir=$(makeTempDir copy_dist)
 
-  copy_dist tests/fixtures/copy_dist/ $tmpDir
+  copy_dist tests/fixtures/copy_dist/ $tmpDir/
 
   assertFiles $tmpDir "package.json a_directory"
   assertFiles $tmpDir/a_directory "some_file"

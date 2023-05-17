@@ -14,7 +14,7 @@ build_page() {
   echo $npm_build_targets
 
   build $source "$npm_build_targets"
-  copy_dist $source/dist $dest/dist
+  copy_dist $source/dist/ $dest/dist/
   copy_bundle $source/dist/$library_name.min.js $dest
   copy_packed $source/$library_name*.tgz $dest/$library_name.tgz
 }
