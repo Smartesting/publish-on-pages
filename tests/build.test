@@ -20,7 +20,6 @@ testBuild() {
 # It tries `npm <target>` if `npm run target` does not work
 testWithNpmCommand() {
   local tmpDir=$(makeTempDir build)
-  echo "PWD: `pwd`"
   cp tests/fixtures/build/package.json $tmpDir
 
   build $tmpDir "pack"

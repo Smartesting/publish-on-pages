@@ -1,8 +1,18 @@
 #!/bin/sh
 
 copy_dist() {
-  local source=$1
-  local dest=$2
+  local source=$(append_slash $1)
+  local dest=$(append_slash $2)
 
   cp -r $source $dest
+}
+
+append_slash() {
+  local value=$1
+
+  if [ $(grep -e '\/$' <<< "$value") ]; then
+    echo $value
+  else
+    echo $value/
+  fi
 }
