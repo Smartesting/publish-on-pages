@@ -1,0 +1,20 @@
+#!/bin/sh
+source './scripts/build'
+source './scripts/copy_dist'
+source './scripts/copy_bundle'
+source './scripts/copy_packed'
+
+
+build_page() {
+  local source=$1
+  local dest=$2
+  local library_name=$3
+  local npm_build_targets=$4
+
+  echo $npm_build_targets
+
+  build $source "$npm_build_targets"
+  copy_dist $source/dist $dest/dist
+  copy_bundle $source/dist/$library_name.min.js $dest
+  copy_packed $source/$library_name*.tgz $dest/$library_name.tgz
+}

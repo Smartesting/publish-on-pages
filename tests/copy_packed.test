@@ -1,0 +1,12 @@
+#!/bin/sh
+source ./scripts/copy_packed
+source ./tests/test_utils
+
+# It copies th tarball and renames it
+test_copy_packed() {
+  local tmpDir=$(makeTempDir copy_packed)
+
+  copy_packed "tests/fixtures/copy_packed/packed-*.tgz" "$tmpDir/packed.tgz"
+
+  assertFile $tmpDir packed.tgz
+}

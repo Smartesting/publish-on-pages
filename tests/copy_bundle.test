@@ -1,0 +1,12 @@
+#!/bin/sh
+source ./scripts/copy_bundle
+source ./tests/test_utils
+
+# It copies the bundle
+test_copy_bundle() {
+  local tmpDir=$(makeTempDir copy_bundle)
+
+  copy_bundle tests/fixtures/copy_bundle/bundle.js $tmpDir
+
+  assertFile $tmpDir bundle.js
+}

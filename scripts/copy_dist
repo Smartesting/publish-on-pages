@@ -1,0 +1,8 @@
+#!/bin/sh
+
+copy_dist() {
+  local source=$1
+  local dest=$2
+
+  cp -r $source $dest
+}

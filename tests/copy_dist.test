@@ -1,0 +1,14 @@
+#!/bin/sh
+
+source ./scripts/copy_dist
+source ./tests/test_utils
+
+# It recursivelly copies a directory
+test_copy_dist() {
+  local tmpDir=$(makeTempDir copy_dist)
+
+  copy_dist tests/fixtures/copy_dist/ $tmpDir
+
+  assertFiles $tmpDir "package.json a_directory"
+  assertFiles $tmpDir/a_directory "some_file"
+}

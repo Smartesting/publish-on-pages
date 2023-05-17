@@ -1,0 +1,13 @@
+#!/bin/sh
+source ./scripts/build_page
+source ./tests/test_utils
+
+test_build_page() {
+  local tmpDir=$(makeTempDir build_page)
+
+  echo "TMP DIR: $tmpDir"
+  build_page tests/fixtures/build_page $tmpDir "some-random-lib" "build build:minified pack"
+
+  # It copies the dist, bundle and packed versions
+  assertFiles $tmpDir "dist some-random-lib.min.js some-random-lib.tgz"
+}

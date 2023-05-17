@@ -1,0 +1,15 @@
+{
+  "name": "some-random-lib",
+  "version": "1.2.3",
+  "dependencies": {
+    "uuid": "9.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:minified": "esbuild src/index.ts  --bundle --minify --outfile=dist/some-random-lib.min.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.17.19",
+    "typescript": "5.0.4"
+  }
+}

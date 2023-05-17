@@ -1,0 +1,37 @@
+#!/bin/sh
+
+makeTempDir() {
+  local name=$1
+  echo $(mktemp -d /tmp/publish-on-pages-tests-$name.XXXXXX)
+}
+
+assertFiles() {
+  local dir=$1
+  local expected=$2
+
+  local actual=$(ls $dir)
+  for file in $expected; do
+    assertIn "$actual" $file
+  done
+
+  for file in $actual; do
+    assertIn "$expected" $file
+  done
+}
+
+assertFile() {
+  local dir=$1
+  local expected=$2
+
+  local actual=$(ls $dir)
+  assertIn "$actual" $expected
+}
+
+# Just a wrapper around shunit2 `assertContains` but with the possibility to be a more verbose about checks.
+assertIn() {
+  local actual=$1
+  local expected=$2
+
+  [[ "$VERBOSE" ]] && echo "Checking <$expected> in <$actual>"
+  assertContains "Expected <$expected> to be contained in <$actual>" "$actual" $expected
+}

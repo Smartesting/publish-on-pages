@@ -1,0 +1,8 @@
+#!/bin/sh
+
+copy_bundle() {
+  local source=$1
+  local dest=$2
+
+  cp $source $dest
+}

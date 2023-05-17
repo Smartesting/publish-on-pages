@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#set -e
+exit_code=0
+
+for file in `find tests -type f -name "*.test"`; do
+  if [ -f $file ]; then
+    echo "Running tests in: $file"
+    ./shunit2/shunit2 $file
+    status=$?
+    if [ $status -ne 0 ]; then
+      exit_code=$status
+    fi
+  fi
+done
+
+exit $exit_code

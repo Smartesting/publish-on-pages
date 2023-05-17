@@ -1,0 +1,11 @@
+{
+  "name": "some-lib",
+  "version": "1.2.3",
+  "scripts": {
+    "build": "mkdir dist && echo done > dist/build",
+    "build:minified": "cat dist/build > dist/minified"
+  },
+  "devDependencies": {
+    "uuid": "^9.0.0"
+  }
+}

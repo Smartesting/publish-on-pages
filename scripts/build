@@ -1,0 +1,19 @@
+#!/bin/sh
+
+build() {
+  local working_dir=$1
+  local npm_targets=$2
+
+  (cd $working_dir && npm install)
+
+  for target in $npm_targets; do
+    echo "Running: 'npm run $target'"
+    (cd $working_dir && npm run $target)
+
+    status=$?
+    if [ $status -ne 0 ]; then
+      echo "Running: 'npm run $target' failed, trying 'npm $target'"
+      (cd $working_dir && npm $target)
+    fi
+  done
+}

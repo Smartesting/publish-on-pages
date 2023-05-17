@@ -1,0 +1,29 @@
+#!/bin/sh
+
+source ./scripts/build
+source ./tests/test_utils
+
+testBuild() {
+  local tmpDir=$(makeTempDir build)
+  cp tests/fixtures/build/package.json $tmpDir
+
+  build $tmpDir "build build:minified"
+
+  # It runs `npm install`
+  assertFile $tmpDir/node_modules uuid
+
+  # It runs alls specified targets
+  assertFile $tmpDir/dist build
+  assertFile $tmpDir/dist minified
+}
+
+# It tries `npm <target>` if `npm run target` does not work
+testWithNpmCommand() {
+  local tmpDir=$(makeTempDir build)
+  echo "PWD: `pwd`"
+  cp tests/fixtures/build/package.json $tmpDir
+
+  build $tmpDir "pack"
+
+  assertFile $tmpDir "some-lib-1.2.3.tgz"
+}
