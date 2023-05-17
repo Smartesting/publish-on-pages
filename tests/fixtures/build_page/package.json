@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:bundle": "esbuild src/index.ts  --bundle --outfile=dist/some-random-lib.js",
     "build:minified": "esbuild src/index.ts  --bundle --minify --outfile=dist/some-random-lib.min.js"
   },
   "devDependencies": {
