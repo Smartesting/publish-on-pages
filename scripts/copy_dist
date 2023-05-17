@@ -1,18 +1,19 @@
 #!/bin/sh
 
 copy_dist() {
-  local source=$(append_slash $1)
-  local dest=$(append_slash $2)
+  local source=$(append_slash "$1")
+  local dest=$(append_slash "$2")
 
-  cp -r $source $dest
+  cp -r "$source" "$dest"
 }
 
 append_slash() {
-  local value=$1
+  local value="$1"
+  local ends_with_slash=$(grep -e '\/$' <<< "$value")
 
-  if [ $(grep -e '\/$' <<< "$value") ]; then
-    echo $value
+  if [ "$ends_with_slash" ]; then
+    echo "$value"
   else
-    echo $value/
+    echo "$value/"
   fi
 }
