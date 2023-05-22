@@ -1,0 +1,12 @@
+#!/bin/sh
+. ./scripts/build_pages
+. ./tests/test_utils
+
+test_build_pages() {
+  local tmpDir=$(makeTempDir build_pages)
+
+  build_pages $tmpDir https://github.com/Smartesting/gravity-data-collector.git "main canary" smartesting-gravity-data-collector gravity-logger-min.js "build build-minified pack"
+
+  # It creates a folder for each branch
+  assertFiles $tmpDir "main canary"
+}

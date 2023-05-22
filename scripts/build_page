@@ -11,12 +11,12 @@ build_page() {
   local npm_build_targets=$4
   local bundle=$5
 
-  if [ -z $bundle]; then
+  if [ -z $bundle ]; then
     bundle="$library_name.js"
   fi
 
   build $source "$npm_build_targets"
-  mkdir $dest/dist
+  mkdir -p $dest/dist
   copy_dist $source/dist $dest/dist
   copy_bundle $source/dist/$bundle $dest
   copy_packed $source/$library_name*.tgz $dest/$library_name.tgz

@@ -6,7 +6,7 @@
 # It clones the branch in a folder named "<branch>-tmp>"
 testClone() {
   local tmpDir=$(makeTempDir clone)
-  local path=$(clone_and_build $tmpDir https://github.com/Smartesting/gravity-data-collector.git main)
+  local path=$(clone $tmpDir https://github.com/Smartesting/gravity-data-collector.git main)
   assertEquals $path "$tmpDir/main-tmp"
 
   assertFiles $tmpDir "main-tmp"
