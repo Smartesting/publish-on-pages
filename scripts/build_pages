@@ -7,8 +7,8 @@ build_pages() {
   local repo_url=$2
   local branches=$3
   local library_name=$4
-  local bundle=$5
-  local npm_build_targets=$6
+  local npm_build_targets=$5
+  local bundle=$6
 
   for branch in $branches; do
     tmp_branch=$(clone "$dest" "$repo_url" "$branch")

@@ -28,13 +28,49 @@ jobs:
         uses: actions/deploy-pages@v2
 ```
 
+You can then reference the library in your package.json file using:
+
+```json
+"dependencies": {
+  "my-super-library": "https://<company-name>.github.io/my-super-library/main/my-super-library.tgz"
+}
+```
+
+Or use the bundled file in an HTML tag:
+
+```html
+<script async src="https://<company-name>.github.io/my-super-library/main/my-super-library.js" type="text/javascript"
+></script>
+```
+
+## Variables
+
+There is not that much to be configured in the action:
+
+| name              | mandatory | description                                                               | default           |
+|-------------------|-----------|---------------------------------------------------------------------------|-------------------|
+| library_name      | ✓         | The name of the library                                                   |                   |
+| branches          |           | The list of branches that should be deployed to GH pages                  | `main`            |
+| npm_build_targets |           | The list of the npm commands to be executed to create the bundle and pack | `build pack`      |
+| bundle            |           | The name of the bundled JS file (eg: my-library.min.js)                   | `library-name.js` |
+
 
 ## Running tests
+
+In order to run the tests, you first have to clone a copy of [`shutnit2](https://github.com/kward/shunit2) locally:
+
+```shell
+git clone https://github.com/kward/shunit2.git
+```
+
+You can then run all the tests using the `tests/run` file:
+
+```shell
+./tests/run
+```
 
 To ensure tests are executed in the same environment than on the CI, it might be easier to run them inside a docker container:
 
 ```shell
 ./test-in-docker
 ```
-
-This will avoid errors that may happen with MacOS's `cp` for example, which do not treat peding slashes the same way than Ubuntu ...

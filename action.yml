@@ -1,13 +1,12 @@
 name: 'Publish on pages'
 description: 'Publish a NPM package on Github pages'
 inputs:
-  branches:
-    description: 'List of branches to build'
-    required: true
-    default: 'main'
   library_name:
     description: 'The name of the library to build'
     required: true
+  branches:
+    description: 'List of branches to build'
+    default: 'main'
   bundle:
     description: 'Name of the bundle file (eg: library.min.js)'
     required: true
@@ -18,5 +17,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: (cd ${{ github.action_path }} && ./publish-on-pages $GITHUB_WORKSPACE "https://github.com/${{ github.repository }}.git" "${{ inputs.branches }}" "${{ inputs.library_name }}" "${{ inputs.bundle }}" "${{ inputs.npm_build_targets }}")
+    - run: (cd ${{ github.action_path }} && ./publish-on-pages $GITHUB_WORKSPACE "https://github.com/${{ github.repository }}.git" "${{ inputs.branches }}" "${{ inputs.library_name }}" "${{ inputs.npm_build_targets }}" ${{ inputs.bundle }} )
       shell: sh
