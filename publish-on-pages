@@ -1,10 +1,10 @@
 ##!/bin/sh
 . './scripts/build_pages'
 
-local repo_url=$1
-local branches=$2
-local library_name=$3
-local bundle=$4
-local npm_build_targets=$5
+repo_url=$1
+branches=$2
+library_name=$3
+bundle=$4
+npm_build_targets=$5
 
 build_pages pages $repo_url $branches $library_name $bundle $npm_build_targets
