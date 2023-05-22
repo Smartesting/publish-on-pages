@@ -1,11 +1,12 @@
 ##!/bin/sh
 . './scripts/build_pages'
 
-repo_url=$1
-branches=$2
-library_name=$3
-bundle=$4
-npm_build_targets=$5
+workdir=$1
+repo_url=$2
+branches=$3
+library_name=$4
+bundle=$5
+npm_build_targets=$6
 
-mkdir pages
-build_pages pages "$repo_url" "$branches" "$library_name" "$bundle" "$npm_build_targets"
+mkdir $1/pages
+build_pages $1/pages "$repo_url" "$branches" "$library_name" "$bundle" "$npm_build_targets"

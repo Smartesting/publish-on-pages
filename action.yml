@@ -18,5 +18,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: (cd ${{ github.action_path }} && ./publish-on-pages "https://github.com/${{ github.repository }}.git" "${{ inputs.branches }}" "${{ inputs.library_name }}" "${{ inputs.bundle }}" "${{ inputs.npm_build_targets }}")
+    - run: (cd ${{ github.action_path }} && ./publish-on-pages $GITHUB_WORKSPACE "https://github.com/${{ github.repository }}.git" "${{ inputs.branches }}" "${{ inputs.library_name }}" "${{ inputs.bundle }}" "${{ inputs.npm_build_targets }}")
       shell: sh
