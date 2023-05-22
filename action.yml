@@ -7,12 +7,11 @@ inputs:
   branches:
     description: 'List of branches to build'
     default: 'main'
-  bundle:
-    description: 'Name of the bundle file (eg: library.min.js)'
-    required: true
   npm_build_targets:
     description: 'List of the npm target to run in order to build the library'
     default: "build pack"
+  bundle:
+    description: 'Name of the bundle file (eg: library.min.js)'
 
 runs:
   using: "composite"
