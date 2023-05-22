@@ -11,8 +11,8 @@ build_pages() {
   local npm_build_targets=$6
 
   for branch in $branches; do
-    tmp_branch=$(clone $dest $repo_url $branch)
-    build_page $tmp_branch $dest/$branch $library_name "$npm_build_targets" "$bundle"
+    tmp_branch=$(clone "$dest" "$repo_url" "$branch")
+    build_page "$tmp_branch" "$dest/$branch" $library_name "$npm_build_targets" "$bundle"
     rm -rf $tmp_branch
   done
  }

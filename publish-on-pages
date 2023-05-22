@@ -8,4 +8,4 @@ bundle=$4
 npm_build_targets=$5
 
 mkdir pages
-build_pages pages $repo_url $branches $library_name $bundle $npm_build_targets
+build_pages pages "$repo_url" "$branches" "$library_name" "$bundle" "$npm_build_targets"
