@@ -9,10 +9,27 @@ test_build_pages() {
     $tmpDir \
     https://github.com/Smartesting/gravity-data-collector.git \
     "main canary" \
+    "" \
     smartesting-gravity-data-collector \
     "build build-minified pack" \
     gravity-logger-min.js
 
   # It creates a folder for each branch
   assertFiles $tmpDir "main canary"
+}
+
+test_build_tags() {
+  local tmpDir=$(makeTempDir build_pages)
+
+  build_pages \
+    $tmpDir \
+    https://github.com/Smartesting/gravity-data-collector.git \
+    "" \
+    "*-beta" \
+    smartesting-gravity-data-collector \
+    "build build-minified pack" \
+    gravity-logger-min.js
+
+  # It creates a folder for each branch
+  assertFiles $tmpDir "v4.2.0-beta"
 }

@@ -11,3 +11,12 @@ testClone() {
 
   assertFiles $tmpDir "main-tmp"
 }
+
+# It can also clone a tag
+testCloneTag() {
+  local tmpDir=$(makeTempDir clone)
+  local path=$(clone $tmpDir https://github.com/Smartesting/gravity-data-collector.git v2.0.0)
+  assertEquals $path "$tmpDir/v2.0.0-tmp"
+
+  assertFiles $tmpDir "v2.0.0-tmp"
+}

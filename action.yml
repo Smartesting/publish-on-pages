@@ -7,6 +7,9 @@ inputs:
   branches:
     description: 'List of branches to build'
     default: 'main'
+  tags:
+    description: 'List of tags to build'
+    default: ''
   npm_build_targets:
     description: 'List of the npm target to run in order to build the library'
     default: "build pack"
@@ -16,5 +19,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: (cd ${{ github.action_path }} && ./publish-on-pages $GITHUB_WORKSPACE "https://github.com/${{ github.repository }}.git" "${{ inputs.branches }}" "${{ inputs.library_name }}" "${{ inputs.npm_build_targets }}" ${{ inputs.bundle }} )
+    - run: (cd ${{ github.action_path }} && ./publish-on-pages $GITHUB_WORKSPACE "https://github.com/${{ github.repository }}.git" "${{ inputs.branches }}" "${{ inputs.tags }}" "${{ inputs.library_name }}" "${{ inputs.npm_build_targets }}" ${{ inputs.bundle }} )
       shell: sh

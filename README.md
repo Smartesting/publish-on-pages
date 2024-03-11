@@ -18,6 +18,7 @@ jobs:
         uses: Smartesting/publish-on-pages@main
         with:
           branches: main some-other-branch # The list of branches that should be made available
+          tags: "*-beta"                   # Expression to match the tags to be published
           library_name: my-super-library   # The name of the library that will be uploaded
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
@@ -51,6 +52,7 @@ There is not that much to be configured in the action:
 |-------------------|-----------|---------------------------------------------------------------------------|-------------------|
 | library_name      | ✓         | The name of the library                                                   |                   |
 | branches          |           | The list of branches that should be deployed to GH pages                  | `main`            |
+| tags              |           | Expression to match tags that should be deployed to GH pages              |                   |
 | npm_build_targets |           | The list of the npm commands to be executed to create the bundle and pack | `build pack`      |
 | bundle            |           | The name of the bundled JS file (eg: my-library.min.js)                   | `library-name.js` |
 

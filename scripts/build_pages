@@ -6,13 +6,20 @@ build_pages() {
   local dest=$1
   local repo_url=$2
   local branches=$3
-  local library_name=$4
-  local npm_build_targets=$5
-  local bundle=$6
+  local tags=$4
+  local library_name=$5
+  local npm_build_targets=$6
+  local bundle=$7
 
   for branch in $branches; do
     tmp_branch=$(clone "$dest" "$repo_url" "$branch")
     build_page "$tmp_branch" "$dest/$branch" $library_name "$npm_build_targets" "$bundle"
+    rm -rf $tmp_branch
+  done
+
+  for tag in $(git ls-remote "$repo_url" --tags  "$tags" | cut -c 52-); do
+    tmp_branch=$(clone "$dest" "$repo_url" "$tag")
+    build_page "$tmp_branch" "$dest/$tag" $library_name "$npm_build_targets" "$bundle"
     rm -rf $tmp_branch
   done
  }
