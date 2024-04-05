@@ -6,17 +6,28 @@ test_build_page() {
   local tmpDir=$(makeTempDir build_page)
 
   git clean -dfx tests/fixtures/build_page
-  build_page tests/fixtures/build_page $tmpDir "some-random-lib" "build build:bundle pack"
+  build_page tests/fixtures/build_page $tmpDir "some-random-lib" "build pack"
+
+  # It copies the dist and packed versions
+  assertFiles $tmpDir "dist some-random-lib.tgz"
+}
+
+test_build_page_with_bundle() {
+  local tmpDir=$(makeTempDir build_page)
+
+  git clean -dfx tests/fixtures/build_page
+  build_page tests/fixtures/build_page $tmpDir "some-random-lib" "build build:bundle pack" "some-random-lib.js"
 
   # It copies the dist, bundle and packed versions
   assertFiles $tmpDir "dist some-random-lib.js some-random-lib.tgz"
 }
 
+
 test_build_page_with_custom_bundle() {
   local tmpDir=$(makeTempDir build_page)
 
   git clean -dfx tests/fixtures/build_page
-  build_page tests/fixtures/build_page $tmpDir "some-random-lib" "build build:minified pack" some-random-lib.min.js
+  build_page tests/fixtures/build_page $tmpDir "some-random-lib" "build build:minified pack" "some-random-lib.min.js"
 
   # It copies the dist, bundle and packed versions
   assertFiles $tmpDir "dist some-random-lib.min.js some-random-lib.tgz"

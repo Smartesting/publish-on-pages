@@ -48,13 +48,13 @@ Or use the bundled file in an HTML tag:
 
 There is not that much to be configured in the action:
 
-| name              | mandatory | description                                                               | default           |
-|-------------------|-----------|---------------------------------------------------------------------------|-------------------|
-| library_name      | ✓         | The name of the library                                                   |                   |
-| branches          |           | The list of branches that should be deployed to GH pages                  | `main`            |
-| tags              |           | Expression to match tags that should be deployed to GH pages              |                   |
-| npm_build_targets |           | The list of the npm commands to be executed to create the bundle and pack | `build pack`      |
-| bundle            |           | The name of the bundled JS file (eg: my-library.min.js)                   | `library-name.js` |
+| name              | mandatory | description                                                               | default      |
+|-------------------|-----------|---------------------------------------------------------------------------|--------------|
+| library_name      | ✓         | The name of the library                                                   |              |
+| branches          |           | The list of branches that should be deployed to GH pages                  | `main`       |
+| tags              |           | Expression to match tags that should be deployed to GH pages              |              |
+| npm_build_targets |           | The list of the npm commands to be executed to create the bundle and pack | `build pack` |
+| bundle            |           | The name of the bundled JS file (eg: my-library.min.js)                   |              |
 
 
 ## Running tests
